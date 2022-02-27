@@ -15,12 +15,13 @@ from your_rllib_config import cust_config
 config.update(cust_config)
 config['num_workers'] = 0
 
-env_config = {'my_config_val': 'bratwurst'}  # just dummy, fill in your param
+env_config = {'is_use_visualization': True}
 env_config = EnvContext(env_config,worker_index=1)
 
 from your_rllib_environment import YourEnvironment
 trainer = ppo.PPOTrainer(config, env=YourEnvironment)
 
+# Change these for your run
 run = 'YourTrainer_YourEnvironment_1e97d_00000_0_2022-02-20_13-13-00'
 checkpoint = 'checkpoint_000500/checkpoint-500'
 

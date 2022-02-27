@@ -5,16 +5,19 @@ from ray.rllib.env import EnvContext
 
 from your_target_system import YourTargetSystem
 from your_constants import STEP_REWARD, ARRIVAL_REWARD, TIMEOUT, TIMEOUT_REWARD
-from pygame_viz.env_visualization import Visualization
+from pygame_visualization.env_visualization import Visualization
 
 
 
 # MultiAgentEvent subclass of gym.Env
 class YourEnvironment(MultiAgentEnv):
     def __init__(self, config:EnvContext):
-        self.config_val = config['my_config_val']
+        self.is_use_visualization = config['is_use_visualization']
+        if self.is_use_visualization:
+            self.visualization = Visualization()
+        else:
+            self.visualization = None
         self.target_system = YourTargetSystem()
-        self.visualization = Visualization()
         self.observation_space = None  # is_atari bug
 
 

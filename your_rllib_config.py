@@ -49,7 +49,7 @@ cust_config = {
         "batch_mode": "complete_episodes",
         "env": YourEnvironment,
         "env_config": {
-            "my_config_val": 'bratwurst',
+            "is_use_visualization": False,
         },
         "framework": "torch",
         "multiagent": {

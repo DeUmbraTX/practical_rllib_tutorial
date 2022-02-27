@@ -11,8 +11,6 @@ size = width, height = 1000,1000
 speed = [2, 2]
 background = 255, 255, 255
 
-screen = pygame.display.set_mode(size)
-
 # 0,0 is top left with y going down
 
 icon_dir = '/Users/jmugan/Dropbox/blogging/RLlib/repo/your_domain/pygame_viz'
@@ -20,6 +18,7 @@ icon_dir = '/Users/jmugan/Dropbox/blogging/RLlib/repo/your_domain/pygame_viz'
 class Visualization:
     def __init__(self):
         pygame.init()
+        self.screen = pygame.display.set_mode(size)
         self.chickens = []
         self.chicken_rects = []
         for i in range(NUM_CHICKENS):
@@ -43,14 +42,14 @@ class Visualization:
             self.robot_rects.append(robot_rect)
 
     def render(self, target_system: YourTargetSystem):
-        screen.fill(background)
+        self.screen.fill(background)
         for i in range(NUM_CHICKENS):
             pos = target_system.chicken_positions[i,:]
             x = int(pos[0] * 1000)
             y = int(pos[1] * 1000)
             self.chicken_rects[i].x = x
             self.chicken_rects[i].y = y
-            screen.blit(self.chickens[i], self.chicken_rects[i])
+            self.screen.blit(self.chickens[i], self.chicken_rects[i])
         for i in range(2):
             if i == 0:
                 robot = target_system.robot_1
@@ -61,5 +60,5 @@ class Visualization:
             y = int(pos[1] * 1000)
             self.robot_rects[i].x = x
             self.robot_rects[i].y = y
-            screen.blit(self.robots[i], self.robot_rects[i])
+            self.screen.blit(self.robots[i], self.robot_rects[i])
         pygame.display.flip()

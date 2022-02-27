@@ -16,7 +16,7 @@ from your_rllib_config import cust_config
 config.update(cust_config)
 config['num_workers'] = 0
 
-env_config = {'my_config_val': 'bratwurst'}  # just dummy, fill in your param
+env_config = {'is_use_visualization': True}
 env_config = EnvContext(env_config,worker_index=1)
 
 from your_rllib_environment import YourEnvironment
@@ -33,8 +33,8 @@ env = YourEnvironment(env_config)
 obs = env.reset()
 
 # Note that they both use the same policy
-robot_1_high_action = trainer.compute_single_action(obs['robot_1_high'], policy_id='high_level_policy')
-robot_2_high_action = trainer.compute_single_action(obs['robot_2_high'], policy_id='high_level_policy')
+robot_1_high_action = trainer.compute_single_action(obs['robot_1_high'], policy_id='high_level_policy', explore=False)
+robot_2_high_action = trainer.compute_single_action(obs['robot_2_high'], policy_id='high_level_policy', explore=False)
 
 action_dict = {'robot_1_high': robot_1_high_action,
                 'robot_2_high': robot_2_high_action}

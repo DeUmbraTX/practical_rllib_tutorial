@@ -13,7 +13,7 @@ from ray.rllib.env import EnvContext
 from your_constants import NUM_CHICKENS, NUM_DIRECTIONS
 from your_rllib_environment import YourEnvironment
 
-env_config = {'my_config_val': 'bratwurst'}  # just dummy, fill in your param
+env_config = {'is_use_visualization': True}
 config = EnvContext(env_config,worker_index=1)
 
 
@@ -44,6 +44,5 @@ while not is_all_done(done):
     print("Reward: ", rew)
     env.render()
     time.sleep(.1)
-
 
 time.sleep(50)
