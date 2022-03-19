@@ -1,13 +1,10 @@
 """
 This is what you want to opimize.
 
-Optimizing this thing is the whole point of what we are doing.
-
+Optimizing this system is the whole point of what we are doing.
 """
-from typing import Any, Optional, Union
-
+from typing import Optional, Union
 import numpy as np
-
 from dataclasses import dataclass
 
 from your_autonomous_agent import YourAutonomousAgent
@@ -33,7 +30,6 @@ class YourTargetSystem:
         self.robot_2 = YourAutonomousAgent()
         self.timestep: Optional[int, None] = None
 
-
     def initialize_yard(self) -> None:
         """
         Get a new chicken yard. For each of the NUM_CHICKEN chickens, compute their
@@ -49,7 +45,6 @@ class YourTargetSystem:
         self.robot_2.initialize()
         self.timestep = 0
 
-
     def get_yard(self) -> YardState:
         self.timestep += 1
         return YardState(
@@ -62,14 +57,12 @@ class YourTargetSystem:
             timestep = self.timestep
         )
 
-
     def get_chicken_reward(self, robot: YourAutonomousAgent) -> float:
         chicken_index = self.get_chicken_index(robot)
         assert not chicken_index is None
         # reward based on how compatable they are
         reward = float(np.dot(robot.get_ocean(),self.chicken_ocean[chicken_index,:]))
         return reward
-
 
     def get_chicken_index(self, robot: YourAutonomousAgent) -> Union[int,None]:
         def is_at(pos_1: np.ndarray, pos_2: np.ndarray) -> bool:
@@ -87,7 +80,6 @@ class YourTargetSystem:
             return False
         else:
             return True
-
 
     def is_done(self) -> bool:
         # done if both robots are at chickens

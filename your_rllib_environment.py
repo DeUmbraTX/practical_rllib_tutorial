@@ -8,7 +8,6 @@ from your_constants import STEP_REWARD, ARRIVAL_REWARD, TIMEOUT, TIMEOUT_REWARD
 from pygame_visualization.env_visualization import Visualization
 
 
-
 # MultiAgentEvent subclass of gym.Env
 class YourEnvironment(MultiAgentEnv):
     def __init__(self, config:EnvContext):
@@ -19,7 +18,6 @@ class YourEnvironment(MultiAgentEnv):
             self.visualization = None
         self.target_system = YourTargetSystem()
         self.observation_space = None  # is_atari bug
-
 
     def reset(self):
         # Start a new chicken yard
@@ -148,7 +146,6 @@ class YourEnvironment(MultiAgentEnv):
 
         # ignore info
         return obs, rew, done, info
-
 
     def close(self):
         pass

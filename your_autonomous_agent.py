@@ -3,6 +3,7 @@ import numpy as np
 
 from your_constants import NUM_OCEAN_FEATURES, X, Y, MOVE_AMOUNT
 
+
 # go 8 directions N, NE, E, SE, S, SW, W, NW
 N = 0
 NE = 1
@@ -76,6 +77,3 @@ class YourAutonomousAgent:
             self.position[Y] = 1.0
         elif self.position[Y] < 0.0:
             self.position[Y] = 0.0
-
-
-
