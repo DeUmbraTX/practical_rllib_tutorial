@@ -1,8 +1,9 @@
-Doc: https://docs.ray.io/en/latest/index.html
+RLlib documentation: https://docs.ray.io/en/latest/index.html
 
-We are working with ray 1.10.0
+We are working with Ray 1.10.0
 
-# Installation
+# Tutorial Steps
+## 1. Installation
 ```
 conda create -n rllib python=3.8
 conda activate rllib
@@ -10,14 +11,14 @@ pip install "ray[rllib]" tensorflow torch
 
 pip install pygame  # so we can visualize what is going on, 2.1.2
 ```
-# Setup
+## 2. Setup
 Set `YOUR_ROOT` in `your_constants.py`
 
-# Test the Environment
+## 3. Test the Environment
 Run `demo/demo_your_rllib_env.py`
 You should see your robots running around until they bump into a chicken.
 
-# Train Your Agent
+## 4. Train Your Agent
 Run `your_rllib_train.py` 
 (set `NUM_ITERATIONS` to 500 for about an hour of training to match the results in the slides)
 
@@ -33,6 +34,12 @@ Run TensorBoard to see the results
 ```
 tensorboard --logdir ./  
 ```
+
+## 5. Load and Use the Learned Policy
+Put in your run and checkpoint number in `demo/demo_after_training.py` and run it.
+
+## 6. Look at Your Learned Policy
+Put in your run and checkpoint number in `demo/demo_look_at_policies.py` and run it.
 
 # Credits
 Icons from publicdomainvectors.org https://publicdomainvectors.org/  

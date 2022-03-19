@@ -22,7 +22,8 @@ env_config = EnvContext(env_config,worker_index=1)
 from your_rllib_environment import YourEnvironment
 trainer = ppo.PPOTrainer(config, env=YourEnvironment)
 
-run = 'YourTrainer_YourEnvironment_1e97d_00000_0_2022-02-20_13-13-00'
+#run = 'YourTrainer_YourEnvironment_deec5_00000_0_2022-03-18_20-42-43'
+run = 'custom_execution_plan_2022-02-24'
 checkpoint = 'checkpoint_000500/checkpoint-500'
 
 restore_point = os.path.join(YOUR_ROOT, run, checkpoint)

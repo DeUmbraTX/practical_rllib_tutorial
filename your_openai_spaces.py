@@ -66,4 +66,3 @@ high_level_action_space = spaces.Discrete(NUM_CHICKENS)
 
 # go 8 directions N, NE, E, SE, S, SW, W, NW
 low_level_action_space = spaces.Discrete(NUM_DIRECTIONS)
-
