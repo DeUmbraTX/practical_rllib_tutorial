@@ -10,13 +10,14 @@ from pygame_visualization.env_visualization import Visualization
 
 # MultiAgentEvent subclass of gym.Env
 class YourEnvironment(MultiAgentEnv):
-    def __init__(self, config:EnvContext):
+    def __init__(self, config: EnvContext):
         self.is_use_visualization = config['is_use_visualization']
         if self.is_use_visualization:
             self.visualization = Visualization()
         else:
             self.visualization = None
         self.target_system = YourTargetSystem()
+        # noinspection PyTypeChecker
         self.observation_space = None  # is_atari bug
 
     def reset(self):
@@ -102,7 +103,7 @@ class YourEnvironment(MultiAgentEnv):
                                        'robot_ocean': yard.robot_1_ocean,
                                        'robot_position': yard.robot_1_position}
             else:
-                # if the robot didn't make it to the chicken, keep going onl low-level policy
+                # if the robot didn't make it to the chicken, keep going on low-level policy
                 # and don't return anything for the high-level policy
                 rew['robot_1_low'] = STEP_REWARD
                 done['robot_1_low'] = False

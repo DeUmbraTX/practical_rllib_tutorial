@@ -2,7 +2,7 @@
 This trainer is based off of PPO and points you in the direction of how to
 customize it.
 
-PPO is as a policy gradient method method called Proximal Policy Optimization.
+PPO is as a policy gradient method called Proximal Policy Optimization.
 Policy gradient means you update the parameters of the policy directly instead of using
 a Q table or something like that. Good for continuous actions.
 """

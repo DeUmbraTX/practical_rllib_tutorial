@@ -42,7 +42,8 @@ while not is_all_done(done):
         action_dict['robot_2_low'] = random.choice(range(NUM_DIRECTIONS))
     obs, rew, done, info = env.step(action_dict)
     print("Reward: ", rew)
-    env.render()
     time.sleep(.1)
+    env.render()
+
 
 time.sleep(50)

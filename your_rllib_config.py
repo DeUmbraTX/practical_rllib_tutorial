@@ -3,8 +3,8 @@ from typing import Dict
 from ray.rllib.policy.policy import PolicySpec
 from your_rllib_environment import YourEnvironment
 
-from your_openai_spaces import high_level_obs_space, high_level_action_space, low_level_obs_space,\
-    low_level_action_space
+from your_openai_spaces import high_level_obs_space, high_level_action_space, \
+    low_level_obs_space,low_level_action_space
 
 
 def policy_map_fn(agent_id: str, _episode=None, _worker=None, **_kwargs) -> str:

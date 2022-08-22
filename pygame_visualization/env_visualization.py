@@ -1,11 +1,10 @@
-import pygame
-
-import random
 import os
 
-from your_target_system import YourTargetSystem
+import pygame
 
+from your_target_system import YourTargetSystem
 from your_constants import NUM_CHICKENS
+
 
 size = width, height = 1000,1000
 speed = [2, 2]
@@ -13,7 +12,7 @@ background = 255, 255, 255
 
 # 0,0 is top left with y going down
 
-icon_dir = '/Users/jmugan/Dropbox/blogging/RLlib/repo/your_domain/pygame_viz'
+icon_dir = os.path.dirname(__file__)
 
 class Visualization:
     def __init__(self):
@@ -22,11 +21,7 @@ class Visualization:
         self.chickens = []
         self.chicken_rects = []
         for i in range(NUM_CHICKENS):
-            #import os
-            #cwd = os.getcwd()
-            #print(cwd)
             chicken = pygame.image.load(os.path.join(icon_dir,'chicken_public_domain.svg'))
-            #chicken = pygame.image.load(os.path.join(icon_dir, 'chicken.png'))
             chicken = pygame.transform.scale(chicken, (50, 50))
             chicken_rect = chicken.get_rect()
             self.chickens.append(chicken)
@@ -35,13 +30,13 @@ class Visualization:
         self.robot_rects = []
         for i in range(2):
             robot = pygame.image.load(os.path.join(icon_dir, 'robot_public_domain.svg'))
-            #robot = pygame.image.load(os.path.join(icon_dir, 'robot.png'))
             robot = pygame.transform.scale(robot, (40, 70))
             robot_rect = robot.get_rect()
             self.robots.append(robot)
             self.robot_rects.append(robot_rect)
 
     def render(self, target_system: YourTargetSystem):
+        pygame.event.get()
         self.screen.fill(background)
         for i in range(NUM_CHICKENS):
             pos = target_system.chicken_positions[i,:]
